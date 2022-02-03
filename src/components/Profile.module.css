@@ -1,0 +1,49 @@
+.content {
+    grid-area: content;
+    background-color: var(--main-color);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.header {
+
+}
+
+.profile {
+
+}
+
+.profile .avatar {
+}
+
+.profile .info {
+
+}
+
+.info .name {
+
+}
+
+.info .birthday {
+
+}
+
+.info .city {
+
+}
+
+.info .education {
+
+}
+
+.info .site {
+
+}
+
+.posts {
+
+}
+
+.posts .item {
+
+}

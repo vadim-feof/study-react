@@ -1,38 +1,38 @@
 import React from 'react';
-
+import classes from './Profile.module.css'
 const Profile = () => {
     return (
-        <div className='content'>
-            <div className='content__header'>
+        <div className={classes.content}>
+            <div className={classes.header}>
                 <img src='' />
             </div>
-            <div className='content__profile'>
-                <div className='content__profile__avatar'>
+            <div className={classes.profile}>
+                <div className={classes.avatar}>
                     <img src='' />
                 </div>
-                <div className='content__profile__info'>
-                    <div className='content__profile__info__name'>
+                <div className={classes.info}>
+                    <div className={classes.name}>
                         Vadim B.
                     </div>
-                    <div className='content__profile__info__birthday'>
+                    <div className={classes.birthday}>
                         Date of Birth: 21 June
                     </div>
-                    <div className='content__profile__info__city'>
+                    <div className={classes.city}>
                         City: Kazan
                     </div>
-                    <div className='content__profile__info__education'>
+                    <div className={classes.education}>
                         Education: KNRTU `22
                     </div>
-                    <div className='content__profile__info__site'>
+                    <div className={classes.site}>
                         Site: <a href='https://vk.com/ff1ght' target={'_blank'}>vk.com/ff1ght</a>
                     </div>
                 </div>
             </div>
-            <div className='content__posts'>
+            <div className={classes.posts}>
                 My posts
                 <input></input>
                 <button>Create post</button>
-                <div className='content__posts_item'>
+                <div className={classes.item}>
                     Post №1
                 </div>
             </div>

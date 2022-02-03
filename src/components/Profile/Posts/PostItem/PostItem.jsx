@@ -1,15 +1,17 @@
 import React from 'react';
 import classes from './PostItem.module.css'
 
-const PostItem = () => {
+const PostItem = (props) => {
     return (
         <div className={classes.item}>
-            Post №1
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quo!
+            <div className={classes.number}>
+                Post №{props.id}
             </div>
-            <div>
-                Like
+            <div className={classes.message}>
+                {props.message}
+            </div>
+            <div className={classes.likeCount}>
+                {props.likeCount} likes
             </div>
         </div>
     );

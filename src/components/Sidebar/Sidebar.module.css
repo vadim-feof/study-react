@@ -13,3 +13,16 @@
 .item a:hover {
     text-decoration: underline;
 }
+
+.item a.activeLink {
+    position: relative;
+    color: var(--header-color);
+}
+
+.item a.activeLink::before {
+    content: "|";
+    display: block;
+    position: absolute;
+    left: -5px;
+    top: -2px;
+}

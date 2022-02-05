@@ -4,7 +4,7 @@ import Posts from "./Posts/Posts";
 
 const Profile = () => {
     return (
-        <div className={classes.content}>
+        <div>
             <div className={classes.header}>
                 <img src='' />
             </div>

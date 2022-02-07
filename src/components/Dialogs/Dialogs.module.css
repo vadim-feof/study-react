@@ -1,26 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: 4fr 8fr;
-}
-
-.dialogs {
-    padding: 0 20px;
-}
-
-.dialogsItem {
-    display: block;
-    margin-bottom: 10px;
-    border: 1px solid black;
-    text-decoration: none;
-    height: 50px;
-}
-
-.activeDialogsItem {
-    display: block;
-    margin-bottom: 10px;
-    border: 1px solid red;
-    text-decoration: none;
-    height: 50px;
+    gap: 5px;
 }
 
 .messages {
@@ -30,9 +11,4 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-}
-
-.messagesItem {
-    border: 1px solid black;
-    margin: 5px 0;
 }

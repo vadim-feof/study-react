@@ -1,38 +1,21 @@
 import React from 'react';
 import classes from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
+import DialogsItem from "./DialogsItem/DialogsItem";
+import MessagesItem from "./MessagesItem/MessagesItem";
 
 const Dialogs = () => {
-    // для обработки активной ссылки
-    const activeDialogsItem = () => {
-        return navData => navData.isActive ? classes.activeDialogsItem : classes.dialogsItem
-    }
     return (
         <div className={classes.wrapper}>
             <div className={classes.dialogs}>
-                <NavLink to='/dialogs/1' className={activeDialogsItem()}>
-                    Angelina
-                </NavLink>
-                <NavLink to='/dialogs/2' className={activeDialogsItem()}>
-                    Anton
-                </NavLink>
-                <NavLink to='/dialogs/3' className={activeDialogsItem()}>
-                    Igor
-                </NavLink>
-                <NavLink to='/dialogs/4' className={activeDialogsItem()}>
-                    Sashka
-                </NavLink>
+                <DialogsItem id={'1'} name={'Angelina'}/>
+                <DialogsItem id={'2'} name={'Anton'}/>
+                <DialogsItem id={'3'} name={'Igor'}/>
+                <DialogsItem id={'4'} name={'Sashka'}/>
             </div>
             <div className={classes.messages}>
-                <div className={classes.messagesItem}>
-                    Hi!
-                </div>
-                <div className={classes.messagesItem}>
-                    How are you?
-                </div>
-                <div className={classes.messagesItem}>
-                    Hey
-                </div>
+                <MessagesItem message={'Hi!'}/>
+                <MessagesItem message={'How are you?'}/>
+                <MessagesItem message={'Hey'}/>
             </div>
         </div>
     );

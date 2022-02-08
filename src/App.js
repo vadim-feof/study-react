@@ -10,7 +10,11 @@ import Music from "./components/Music/Music";
 
 /* http://preview.themeforest.net/item/buddy-multipurpose-wordpressbuddypress-theme/full_screen_preview/3506362?_ga=2.214380447.908696352.1643398348-404296411.1634847135
 */
+// TODO: avatar for dialogs
+// TODO: to sidebar add friends block
+// TODO: sort message by user (right my message, left user`s message)
 function App(props) {
+    debugger
     return (
         <BrowserRouter>
             <div className='App'>
@@ -18,8 +22,12 @@ function App(props) {
                 <Sidebar />
                 <div className="App-content">
                     <Routes>
-                        <Route path='/profile' element={<Profile postsData={props.postsData}/>} />
-                        <Route path='/dialogs/*' element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>} />
+                        <Route path='/profile' element={<Profile
+                            state={props.state.postPage}/>}
+                        />
+                        <Route path='/dialogs/*' element={<Dialogs
+                            state={props.state.dialogsPage}/>}
+                        />
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />
                         <Route path='/settings' element={<Settings />} />

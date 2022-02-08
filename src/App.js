@@ -10,7 +10,7 @@ import Music from "./components/Music/Music";
 
 /* http://preview.themeforest.net/item/buddy-multipurpose-wordpressbuddypress-theme/full_screen_preview/3506362?_ga=2.214380447.908696352.1643398348-404296411.1634847135
 */
-function App() {
+function App(props) {
     return (
         <BrowserRouter>
             <div className='App'>
@@ -18,8 +18,8 @@ function App() {
                 <Sidebar />
                 <div className="App-content">
                     <Routes>
-                        <Route path='/profile' element={<Profile />} />
-                        <Route path='/dialogs/*' element={<Dialogs />} />
+                        <Route path='/profile' element={<Profile postsData={props.postsData}/>} />
+                        <Route path='/dialogs/*' element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>} />
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />
                         <Route path='/settings' element={<Settings />} />

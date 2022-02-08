@@ -4,6 +4,10 @@
     gap: 5px;
 }
 
+.dialogs {
+    padding: 0 20px;
+}
+
 .messages {
     border-left: 1px solid black;
     padding-left: 20px;

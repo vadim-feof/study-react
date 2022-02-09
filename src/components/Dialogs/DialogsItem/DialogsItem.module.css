@@ -1,15 +1,37 @@
-.dialogsItem {
+.dialogsItem, .activeDialogsItem {
     display: block;
     margin-bottom: 10px;
     border: 1px solid black;
+    border-radius: 8px;
     text-decoration: none;
+    height: 70px;
+    color: black;
+}
+.activeDialogsItem {
+    background-color: rgba(42, 140, 174, 0.4);
+}
+
+.dialogsItem:hover {
+    background-color: #f2f2f2;
+}
+
+.wrapper {
+    display: flex;
+    padding: 6px;
+    align-items: center;
+    height: 100%;
+}
+
+.avatar img {
+    object-fit: cover;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.avatar {
+    margin-right: 7px;
+    width: 50px;
     height: 50px;
 }
 
-.activeDialogsItem {
-    display: block;
-    margin-bottom: 10px;
-    border: 1px solid red;
-    text-decoration: none;
-    height: 50px;
-}

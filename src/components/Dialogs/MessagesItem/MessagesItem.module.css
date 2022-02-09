@@ -1,4 +1,6 @@
 .messagesItem {
+    padding: 2px 5px;
+    border-radius: 8px;
     border: 1px solid black;
     margin: 5px 0;
 }

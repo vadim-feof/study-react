@@ -2,6 +2,7 @@
     grid-area: sidebar;
     background-color: var(--main-color);
     border-radius: 8px;
+    height: 400px;
     padding: 15px;
 }
 

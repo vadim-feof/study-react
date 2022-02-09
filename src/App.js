@@ -11,15 +11,14 @@ import Music from "./components/Music/Music";
 /* http://preview.themeforest.net/item/buddy-multipurpose-wordpressbuddypress-theme/full_screen_preview/3506362?_ga=2.214380447.908696352.1643398348-404296411.1634847135
 */
 // TODO: avatar for dialogs
-// TODO: to sidebar add friends block
 // TODO: sort message by user (right my message, left user`s message)
 function App(props) {
-    debugger
+
     return (
         <BrowserRouter>
             <div className='App'>
                 <Header />
-                <Sidebar />
+                <Sidebar state={props.state.sidebar}/>
                 <div className="App-content">
                     <Routes>
                         <Route path='/profile' element={<Profile

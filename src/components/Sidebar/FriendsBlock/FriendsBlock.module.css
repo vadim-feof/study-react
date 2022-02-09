@@ -1,0 +1,25 @@
+.wrapper {
+    border-radius: 8px;
+    margin-top: 20px;
+    height: 220px;
+    overflow-y: auto;
+    background-color: #f8f8f8;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 4px;
+    background-color: #e6e6e6;
+    border-radius: 8px;
+}
+/* общая полоса прокрутки*/
+.wrapper::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e6e6e6;
+    background-clip: content-box;   /* THIS IS IMPORTANT  Если дорожка должна быть прозрачной, можно использовать background-clip.*/
+}
+
+/* указатель прокрутки */
+.wrapper::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgb(116, 116, 116);
+}

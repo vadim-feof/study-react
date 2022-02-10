@@ -12,6 +12,7 @@ import Music from "./components/Music/Music";
 */
 
 // TODO: sort message by user (right my message, left user`s message)
+// TODO: state management for dialogs
 function App(props) {
 
     return (
@@ -22,8 +23,9 @@ function App(props) {
                 <div className="App-content">
                     <Routes>
                         <Route path='/profile' element={<Profile
-                            state={props.state.postPage}
-                            addPost={props.addPost}/>}
+                            postPage={props.state.postPage}
+                            addPost={props.addPost}
+                            onChangePostText={props.onChangePostText}/>}
                         />
                         <Route path='/dialogs/*' element={<Dialogs
                             state={props.state.dialogsPage}/>}

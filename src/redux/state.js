@@ -21,7 +21,8 @@ let state = {
             {id: 3, message: "Lorem ipsum dolor sit amet.", likeCount: 11},
             {id: 4, message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", likeCount: 5},
             {id: 5, message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta in similique?", likeCount: 7}
-        ]
+        ],
+        newPostText: '',
     },
     sidebar: {
         friendsBlock: [
@@ -33,14 +34,22 @@ let state = {
         ]
     }
 }
+window.state = state
 
-export let addPost = (message) => {
+export let addPost = () => {
+    let lastId = state.postPage.postsData[state.postPage.postsData.length - 1].id + 1
     let newPost = {
-        id: -1,
-        message: message,
+        id: lastId,
+        message: state.postPage.newPostText,
         likeCount: 0
     }
     state.postPage.postsData.push(newPost)
+    state.postPage.newPostText = ''
+    rerenderEntireTree(state)
+}
+
+export let onChangePostText = (text) => {
+    state.postPage.newPostText = text
     rerenderEntireTree(state)
 }
 

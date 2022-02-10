@@ -22,7 +22,8 @@ function App(props) {
                 <div className="App-content">
                     <Routes>
                         <Route path='/profile' element={<Profile
-                            state={props.state.postPage}/>}
+                            state={props.state.postPage}
+                            addPost={props.addPost}/>}
                         />
                         <Route path='/dialogs/*' element={<Dialogs
                             state={props.state.dialogsPage}/>}

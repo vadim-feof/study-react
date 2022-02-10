@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     dialogsPage: {
         dialogsData: [
@@ -30,6 +32,16 @@ let state = {
             {name: 'Ilnar', avatarUrl: 'https://sun9-28.userapi.com/impf/c849020/v849020264/78246/jse_QunlSds.jpg?size=810x1080&quality=96&sign=4a981805495e4dd93e2e5ab99261cf9b&type=album'},
         ]
     }
+}
+
+export let addPost = (message) => {
+    let newPost = {
+        id: -1,
+        message: message,
+        likeCount: 0
+    }
+    state.postPage.postsData.push(newPost)
+    rerenderEntireTree(state)
 }
 
 export default state;

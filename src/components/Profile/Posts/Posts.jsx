@@ -3,16 +3,22 @@ import classes from './Posts.module.css'
 import PostItem from "./PostItem/PostItem";
 
 const Posts = (props) => {
-    let postsItem = props.postsData.map( p => <PostItem id={p.id} likeCount={p.likeCount} message={p.message}/>)
+    let postsItem = props.postsData.map( p => <PostItem id={p.id} likeCount={p.likeCount} message={p.message}/>).reverse()
+
+    let postElement = React.createRef()
+    let messageToState = () => {
+        let message = postElement.current.value
+        props.addPost(message)
+    }
 
     return (
         <div className={classes.posts}>
             My posts
             <div>
-                <textarea></textarea>
+                <textarea ref={postElement}></textarea>
             </div>
             <div>
-                <button>Create post</button>
+                <button onClick={messageToState}>Create post</button>
             </div>
             <div>
                 { postsItem }

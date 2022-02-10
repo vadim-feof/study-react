@@ -10,7 +10,6 @@ const Sidebar = (props) => {
     const activeLink = () => {
         return navData => navData.isActive ? classes.activeLink : classes.item
     }
-    debugger
     return (
         <nav className={classes.sidebar}>
             <div className={classes.itemList}>
@@ -30,7 +29,6 @@ const Sidebar = (props) => {
                     <NavLink to='/settings' className={activeLink()}>Settings</NavLink>
                 </div>
             </div>
-
             <FriendsBlock friendsData={props.state.friendsBlock}/>
         </nav>
     );

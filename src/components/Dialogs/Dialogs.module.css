@@ -4,15 +4,41 @@
     gap: 5px;
 }
 
-.dialogs {
+.dialogs__list {
     padding: 0 20px;
 }
 
-.messages {
+.messages__wrapper {
+    display: grid;
+    grid-template-rows: 10fr 2fr;
     border-left: 1px solid black;
+}
+
+.messages__list {
     padding-left: 20px;
+    display: grid;
+    align-content: end;
+}
+
+.messages__input {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    border: 0;
+}
+
+.messages__input textarea {
+    margin: 0;
+    box-sizing: border-box;
+    resize: none;
+    width: 100%;
+    height: 50px;
+}
+
+.sendButton {
+    margin-left: 10px;
+    display: block;
+    width: 70px;
+    height: 30px;
 }

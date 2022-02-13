@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+    console.log('State was changed')
+}
 
 let state = {
     dialogsPage: {
@@ -36,7 +38,8 @@ let state = {
 }
 window.state = state
 
-export let addPost = () => {
+export const addPost = () => {
+    if (state.postPage.newPostText === '') return
     let lastId = state.postPage.postsData[state.postPage.postsData.length - 1].id + 1
     let newPost = {
         id: lastId,
@@ -48,9 +51,13 @@ export let addPost = () => {
     rerenderEntireTree(state)
 }
 
-export let onChangePostText = (text) => {
+export const onChangePostText = (text) => {
     state.postPage.newPostText = text
     rerenderEntireTree(state)
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
 }
 
 export default state;

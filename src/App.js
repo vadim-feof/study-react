@@ -13,6 +13,7 @@ import Music from "./components/Music/Music";
 
 // TODO: sort message by user (right my message, left user`s message)
 // TODO: state management for dialogs
+//
 function App(props) {
 
     return (

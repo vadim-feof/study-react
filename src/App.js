@@ -15,7 +15,7 @@ import Music from "./components/Music/Music";
 // TODO: state management for dialogs
 //
 function App(props) {
-
+    debugger
     return (
         <BrowserRouter>
             <div className='App'>

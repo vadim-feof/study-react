@@ -34,36 +34,37 @@ const store = {
             ]
         }
     },
-
     getState() {
         return this._state
-    },
-
-    addPost() {
-        if (this._state.postPage.newPostText === '') return
-        let lastId = this._state.postPage.postsData[this._state.postPage.postsData.length - 1].id + 1
-        let newPost = {
-            id: lastId,
-            message: this._state.postPage.newPostText,
-            likeCount: 0
-        }
-        this._state.postPage.postsData.push(newPost)
-        this._state.postPage.newPostText = ''
-        this._subscriber(this)
-    },
-
-    onChangePostText(text) {
-        this._state.postPage.newPostText = text
-        this._subscriber(this)
     },
 
     subscribe(observer) {
         this._subscriber = observer
     },
-
     _subscriber() {
         console.log('no subscribers')
+    },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            if (this._state.postPage.newPostText === '') return
+            let lastId = this._state.postPage.postsData[this._state.postPage.postsData.length - 1].id + 1
+            let newPost = {
+                id: lastId,
+                message: this._state.postPage.newPostText,
+                likeCount: 0
+            }
+            this._state.postPage.postsData.push(newPost)
+            this._state.postPage.newPostText = ''
+            this._subscriber(this)
+        }
+        else if (action.type === 'ON-CHANGE-POST-TEXT') {
+            this._state.postPage.newPostText = action.newText
+            this._subscriber(this)
+        }
     }
+
+
 }
 
 export default store;

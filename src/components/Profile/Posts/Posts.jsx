@@ -6,23 +6,22 @@ const Posts = (props) => {
     let postsItem = props.postsPage.postsData.map( p => <PostItem id={p.id} likeCount={p.likeCount} message={p.message}/>).reverse()
 
     let postElement = React.createRef()
-    let messageToState = () => {
-        props.addPost()
+    let onChangePostText = () => {
+        props.dispatch({type: 'ON-CHANGE-POST-TEXT', newText: postElement.current.value})
     }
 
-    let onChangeToState = () => {
-        let text = postElement.current.value
-        props.onChangePostText(text)
+    let addPost = () => {
+        props.dispatch({type: 'ADD-POST'})
     }
 
     return (
         <div className={classes.posts}>
             My posts
             <div>
-                <textarea onChange={onChangeToState} ref={postElement} value={props.postsPage.newPostText}/>
+                <textarea onChange={onChangePostText} ref={postElement} value={props.postsPage.newPostText}/>
             </div>
             <div>
-                <button onClick={messageToState}>Create post</button>
+                <button onClick={addPost}>Create post</button>
             </div>
             <div>
                 { postsItem }

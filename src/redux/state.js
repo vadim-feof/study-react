@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
 const store = {
 
@@ -15,7 +17,8 @@ const store = {
                 {id: 1, message: 'Hi!'},
                 {id: 2, message: 'How are you?'},
                 {id: 3, message: 'Hey'}
-            ]
+            ],
+            newMessageText: '123'
         },
         postPage: {
             postsData: [
@@ -65,12 +68,32 @@ const store = {
             this._state.postPage.newPostText = action.newText
             this._subscriber(this)
         }
+        else if (action.type === ADD_MESSAGE) {
+            debugger
+            if (this._state.dialogsPage.newMessageText === '') return
+            let lastId = this._state.dialogsPage.messagesData[this._state.dialogsPage.messagesData.length - 1].id + 1
+            let newMessage = {
+                id: lastId,
+                message: this._state.dialogsPage.newMessageText
+            }
+            this._state.dialogsPage.messagesData.push(newMessage)
+            this._state.dialogsPage.newMessageText = ''
+            this._subscriber(this)
+        }
+        else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.dialogsPage.newMessageText = action.newText
+            this._subscriber(this)
+        }
     }
-
-
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const updateNewPostTextActionCreator = (text) => (
+    {type: UPDATE_NEW_POST_TEXT, newText: text})
 
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
+export const updateNewMessageActionCreator = (text) => (
+    {type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+
+window.state = store._state
 export default store;

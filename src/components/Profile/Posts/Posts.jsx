@@ -16,8 +16,6 @@ const Posts = (props) => {
         props.dispatch(updateNewPostTextActionCreator(postElement.current.value))
     }
 
-
-
     return (
         <div className={classes.posts}>
             My posts

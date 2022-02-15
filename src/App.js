@@ -15,7 +15,6 @@ import Music from "./components/Music/Music";
 // TODO: state management for dialogs
 //
 function App(props) {
-    debugger
     return (
         <BrowserRouter>
             <div className='App'>
@@ -28,7 +27,8 @@ function App(props) {
                             dispatch={props.dispatch}/>}
                         />
                         <Route path='/dialogs/*' element={<Dialogs
-                            state={props.state.dialogsPage}/>}
+                            state={props.state.dialogsPage}
+                            dispatch={props.dispatch}/>}
                         />
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />

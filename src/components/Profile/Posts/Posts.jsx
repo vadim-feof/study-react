@@ -11,16 +11,15 @@ const Posts = (props) => {
         props.dispatch(addPostActionCreator())
     }
 
-    let postElement = React.createRef()
-    let onChangePostText = () => {
-        props.dispatch(updateNewPostTextActionCreator(postElement.current.value))
+    let onChangePostText = (event) => {
+        props.dispatch(updateNewPostTextActionCreator(event.target.value))
     }
 
     return (
         <div className={classes.posts}>
             My posts
             <div>
-                <textarea onChange={onChangePostText} ref={postElement} value={props.postsPage.newPostText}/>
+                <textarea onChange={onChangePostText} value={props.postsPage.newPostText}/>
             </div>
             <div>
                 <button onClick={addPost}>Create post</button>

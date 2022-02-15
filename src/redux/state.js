@@ -18,7 +18,7 @@ const store = {
                 {id: 2, message: 'How are you?'},
                 {id: 3, message: 'Hey'}
             ],
-            newMessageText: '123'
+            newMessageText: ''
         },
         postPage: {
             postsData: [

@@ -8,9 +8,9 @@ const Dialogs = (props) => {
     let dialogsElement = props.state.dialogsData.map(d => <DialogsItem id={d.id} name={d.name} avatarUrl={d.avatarUrl}/>)
     let messagesElement = props.state.messagesData.map(m => <MessagesItem id={m.id} message={m.message}/>)
 
-    let inputElement = React.createRef();
-    let updateNewMessageText = () => {
-        props.dispatch(updateNewMessageActionCreator(inputElement.current.value))
+
+    let updateNewMessageText = (event) => {
+        props.dispatch(updateNewMessageActionCreator(event.target.value))
     }
 
     let sendMessage = () => {
@@ -26,7 +26,7 @@ const Dialogs = (props) => {
                     {messagesElement}
                 </div>
                 <div className={classes.messages__input}>
-                    <textarea ref={inputElement} onChange={updateNewMessageText} value={props.state.newMessageText}/>
+                    <textarea onChange={updateNewMessageText} value={props.state.newMessageText}/>
                     <button onClick={sendMessage} className={classes.sendButton}>Send</button>
                 </div>
             </div>

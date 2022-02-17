@@ -5,7 +5,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../red
 
 
 const Posts = (props) => {
-    let postsItem = props.postsPage.postsData.map( p => <PostItem id={p.id} likeCount={p.likeCount} message={p.message}/>).reverse()
+    let postsItem = props.profilePage.postsData.map( p => <PostItem id={p.id} likeCount={p.likeCount} message={p.message}/>).reverse()
 
     let addPost = () => {
         props.dispatch(addPostActionCreator())
@@ -19,7 +19,7 @@ const Posts = (props) => {
         <div className={classes.posts}>
             My posts
             <div>
-                <textarea onChange={onChangePostText} value={props.postsPage.newPostText}/>
+                <textarea onChange={onChangePostText} value={props.profilePage.newPostText}/>
             </div>
             <div>
                 <button onClick={addPost}>Create post</button>

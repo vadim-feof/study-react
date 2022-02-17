@@ -15,6 +15,7 @@ import Music from "./components/Music/Music";
 // TODO: state management for dialogs
 //
 function App(props) {
+    console.log(props.state)
     return (
         <BrowserRouter>
             <div className='App'>
@@ -23,7 +24,7 @@ function App(props) {
                 <div className="App-content">
                     <Routes>
                         <Route path='/profile' element={<Profile
-                            postPage={props.state.postPage}
+                            profilePage={props.state.profilePage}
                             dispatch={props.dispatch}/>}
                         />
                         <Route path='/dialogs/*' element={<Dialogs

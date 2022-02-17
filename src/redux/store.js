@@ -18,7 +18,7 @@ const store = {
             ],
             newMessageText: ''
         },
-        postPage: {
+        profilePage: {
             postsData: [
                 {id: 1, message: "My first post", likeCount: 12},
                 {id: 2, message: "My second post", likeCount: 23},
@@ -51,7 +51,7 @@ const store = {
 
     dispatch(action) {
 
-        this._state.postPage = profileReducer(this._state.postPage, action)
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
         this._subscriber(this)
     }

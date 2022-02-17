@@ -3,8 +3,6 @@ import classes from './Sidebar.module.css';
 import {NavLink} from "react-router-dom";
 import FriendsBlock from "./FriendsBlock/FriendsBlock";
 
-
-
 const Sidebar = (props) => {
     // для обработки активной ссылки
     const activeLink = () => {

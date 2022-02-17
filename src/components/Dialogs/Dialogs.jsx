@@ -5,6 +5,7 @@ import MessagesItem from "./MessagesItem/MessagesItem";
 import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
+    debugger
     let dialogsElement = props.state.dialogsData.map(d => <DialogsItem id={d.id} name={d.name} avatarUrl={d.avatarUrl}/>)
     let messagesElement = props.state.messagesData.map(m => <MessagesItem id={m.id} message={m.message}/>)
 

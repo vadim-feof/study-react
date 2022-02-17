@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 /* http://preview.themeforest.net/item/buddy-multipurpose-wordpressbuddypress-theme/full_screen_preview/3506362?_ga=2.214380447.908696352.1643398348-404296411.1634847135
 */
@@ -15,22 +16,16 @@ import Music from "./components/Music/Music";
 // TODO: state management for dialogs
 //
 function App(props) {
-    console.log(props.state)
+
     return (
         <BrowserRouter>
             <div className='App'>
                 <Header />
-                <Sidebar state={props.state.sidebar}/>
+                <Sidebar state={props.store.getState().sidebar}/>
                 <div className="App-content">
                     <Routes>
-                        <Route path='/profile' element={<Profile
-                            profilePage={props.state.profilePage}
-                            dispatch={props.dispatch}/>}
-                        />
-                        <Route path='/dialogs/*' element={<Dialogs
-                            state={props.state.dialogsPage}
-                            dispatch={props.dispatch}/>}
-                        />
+                        <Route path='/profile' element={<Profile store={props.store}/>}/>
+                        <Route path='/dialogs/*' element={<DialogsContainer store={props.store}/>}/>
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />
                         <Route path='/settings' element={<Settings />} />

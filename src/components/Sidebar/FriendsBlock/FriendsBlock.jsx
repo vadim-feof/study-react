@@ -6,7 +6,7 @@ const FriendsBlock = (props) => {
 
     return (
         <div className={classes.wrapper}>
-            {props.friendsData.map(f => <FriendsItem name={f.name} avatar={f.avatarUrl}/>)}
+            {props.friendsData.map(f => <FriendsItem key={f.id} name={f.name} avatar={f.avatarUrl}/>)}
         </div>
     );
 }

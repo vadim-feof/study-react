@@ -3,7 +3,7 @@ import classes from './Posts.module.css'
 import PostItem from "./PostItem/PostItem";
 
 const Posts = (props) => {
-    let postsItem = props.posts.map( p => <PostItem id={p.id} likeCount={p.likeCount} message={p.message}/>).reverse()
+    let postsItem = props.posts.map( p => <PostItem key={p.id} likeCount={p.likeCount} message={p.message}/>).reverse()
 
     return (
         <div className={classes.posts}>

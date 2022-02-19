@@ -4,8 +4,8 @@ import DialogsItem from "./DialogsItem/DialogsItem";
 import MessagesItem from "./MessagesItem/MessagesItem";
 
 const Dialogs = (props) => {
-    let dialogsElement = props.dialogsData.map(d => <DialogsItem id={d.id} name={d.name} avatarUrl={d.avatarUrl}/>)
-    let messagesElement = props.messagesData.map(m => <MessagesItem id={m.id} message={m.message}/>)
+    let dialogsElement = props.dialogsData.map(d => <DialogsItem key={d.id} name={d.name} avatarUrl={d.avatarUrl}/>)
+    let messagesElement = props.messagesData.map(m => <MessagesItem key={m.id} message={m.message}/>)
 
     const onChangeMessageText = (e) => {
         props.onChangeMessageText(e.target.value)

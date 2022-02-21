@@ -1,11 +1,10 @@
 import React from "react";
 import styles from './Users.module.css'
 import UsersItem from "./UsersItem/UsersItem";
+import axios from "axios";
 
-const Users = (props) => {
-    debugger
-    if (props.users.length === 0)
-        props.setUsers([
+class Users extends React.Component {
+    /*[
         {
             id: 1,
             photoUrl: 'https://sun9-66.userapi.com/impg/Z-T1iiIc0VFoncYEDqQPRJtg1COa07wrPgD4ww/iJrY_XuJCak.jpg?size=723x1080&quality=96&sign=d36f1845cd8639490e4deb191dd1776d&type=album',
@@ -39,22 +38,30 @@ const Users = (props) => {
             },
             follow: false
         }
-    ])
+    ]*/
+    constructor(props) {
+        super(props);
+        axios
+            .get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(response => props.setUsers(response.data.items))
+    }
 
-    return (
-        <div className={styles.wrapper}>
-            {props.users.map( (u) =>
-                <UsersItem key={u.id}
-                           userId={u.id}
-                           photoUrl={u.photoUrl}
-                           fullName={u.fullName}
-                           status={u.status}
-                           location={u.location}
-                           follow={u.follow}
-                           onClickFollowBtn={props.onClickFollowBtn}
-                           onClickUnFollowBtn={props.onClickUnFollowBtn}/>)}
-        </div>
-    )
+    render () {
+        return (
+            <div className={styles.wrapper}>
+                {this.props.users.map((u) =>
+                    <UsersItem key={u.id}
+                               userId={u.id}
+                               photos={u.photos}
+                               name={u.name}
+                               status={u.status}
+                               location={'Location'}
+                               followed={u.followed}
+                               onClickFollowBtn={this.props.onClickFollowBtn}
+                               onClickUnFollowBtn={this.props.onClickUnFollowBtn}/>)}
+            </div>
+        )
+    }
 }
 
 export default Users

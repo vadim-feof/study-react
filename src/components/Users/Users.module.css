@@ -1,3 +1,17 @@
 .wrapper {
 
 }
+
+.pagesWrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pagesActive, .pagesNonActive {
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.pagesActive {
+    font-weight: bold;
+}

@@ -42,24 +42,61 @@ class Users extends React.Component {
 
     componentDidMount() {
         axios
-            .get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => this.props.setUsers(response.data.items))
+            .get(
+                `https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${this.props.usersCountOnPage}`
+            )
+            .then(response => {
+                    this.props.setTotalUsersCount(response.data.totalCount)
+                    this.props.setUsers(response.data.items)
+                }
+            )
     }
 
+    onClickPage = (event) => {
+        this.props.setCurrentPage(event.target.outerText)
+        axios
+            .get(
+                `https://social-network.samuraijs.com/api/1.0/users?page=${event.target.outerText}&count=${this.props.usersCountOnPage}`
+            )
+            .then(response => {
+                    this.props.setUsers(response.data.items)
+                }
+            )
+    }
+
+    setPages() {
+        let pages = []
+        for (let i = 0; i < Math.ceil(this.props.totalUsersCount / this.props.usersCountOnPage); i++) {
+            pages.push(
+                <div
+                    className={ this.props.currentPage == i + 1 ? styles.pagesActive : styles.pagesNonActive}
+                    onClick={ (event) => this.onClickPage(event)}
+                >
+                    {i + 1}
+                </div>
+            )
+        }
+        return pages
+    }
 
     render () {
         return (
             <div className={styles.wrapper}>
-                {this.props.users.map((u) =>
-                    <UsersItem key={u.id}
-                               userId={u.id}
-                               photos={u.photos}
-                               name={u.name}
-                               status={u.status}
-                               location={'Location'}
-                               followed={u.followed}
-                               onClickFollowBtn={this.props.onClickFollowBtn}
-                               onClickUnFollowBtn={this.props.onClickUnFollowBtn}/>)}
+                <div className={styles.pagesWrapper}>
+                    {this.setPages()}
+                </div>
+                <div>
+                    {this.props.users.map((u) =>
+                        <UsersItem key={u.id}
+                                   userId={u.id}
+                                   photos={u.photos}
+                                   name={u.name}
+                                   status={u.status}
+                                   location={'Location'}
+                                   followed={u.followed}
+                                   onClickFollowBtn={this.props.onClickFollowBtn}
+                                   onClickUnFollowBtn={this.props.onClickUnFollowBtn}/>)}
+                </div>
             </div>
         )
     }

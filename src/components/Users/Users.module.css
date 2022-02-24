@@ -5,6 +5,8 @@
 .pagesWrapper {
     display: flex;
     justify-content: flex-start;
+    overflow-x: auto;
+    width: 500px;
 }
 
 .pagesActive, .pagesNonActive {

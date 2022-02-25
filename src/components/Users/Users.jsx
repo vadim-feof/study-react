@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Users.module.css'
 import UsersItem from "./UsersItem/UsersItem";
+import Preloader from "../Common/Preloader/Preloader";
 
 const Users = (props) => {
     const setPages = () => {
@@ -21,6 +22,7 @@ const Users = (props) => {
 
     return (
         <div className={styles.wrapper}>
+            {props.isFetching ? <Preloader styles={styles.preloader} /> : null}
             <div className={styles.pagesWrapper}>
                 {setPages()}
             </div>

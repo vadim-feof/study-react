@@ -35,8 +35,8 @@ const Users = (props) => {
                                status={u.status}
                                location={'Location'}
                                followed={u.followed}
-                               onClickFollowBtn={props.onClickFollowBtn}
-                               onClickUnFollowBtn={props.onClickUnFollowBtn}
+                               follow={props.follow}
+                               unFollow={props.unFollow}
                     />
                 )}
             </div>

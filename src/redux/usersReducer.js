@@ -14,6 +14,7 @@ let initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
+    debugger
     switch (action.type) {
         case FOLLOW:
             return {
@@ -60,9 +61,9 @@ const usersReducer = (state = initialState, action) => {
 
 export default usersReducer
 
-export const followActionCreator = (userId) => ({type: FOLLOW, userId})
-export const unFollowActionCreator = (userId) => ({type: UN_FOLLOW, userId})
-export const setUsersActionCreator = (users) => ({type: SET_USERS, users})
-export const setCurrentPageActionCreator = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCountActionCreator = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
-export const toggleIsFetchingActionCreator = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unFollow = (userId) => ({type: UN_FOLLOW, userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})

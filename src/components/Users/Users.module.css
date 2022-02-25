@@ -10,8 +10,9 @@
 }
 
 .pagesActive, .pagesNonActive {
-    margin-left: 6px;
+    margin-left: 12px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .pagesActive {

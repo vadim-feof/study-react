@@ -11,8 +11,8 @@ const UsersItem = (props) => {
                 </div>
                 <div className={styles.btnWrapper}>
                     {props.followed ?
-                        <button onClick={ () => props.onClickUnFollowBtn(props.userId) } className={styles.left_unFollowBtn}>Unfollow</button>
-                        :<button onClick={ () => props.onClickFollowBtn(props.userId) } className={styles.left_followBtn}>Follow</button>}
+                        <button onClick={ () => props.unFollow(props.userId) } className={styles.left_unFollowBtn}>Unfollow</button>
+                        :<button onClick={ () => props.follow(props.userId) } className={styles.left_followBtn}>Follow</button>}
                 </div>
             </div>
             <div className={styles.description}>

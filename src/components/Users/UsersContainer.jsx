@@ -1,7 +1,7 @@
 import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {follow, setCurrent, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unFollow}
+import {follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unFollow}
     from "../../redux/usersReducer";
 import axios from "axios";
 
@@ -37,16 +37,7 @@ class UsersContainer extends React.Component {
 
     render () {
         return (
-            <Users
-                totalUsersCount={this.props.totalUsersCount}
-                usersCountOnPage={this.props.usersCountOnPage}
-                currentPage={this.props.currentPage}
-                onClickPage={this.onClickPage}
-                users={this.props.users}
-                follow={this.props.follow}
-                unFollow={this.props.unFollow}
-                isFetching={this.props.isFetching}
-            />
+            <Users {...this.props} onClickPage={this.onClickPage}/>
         )
     }
 }

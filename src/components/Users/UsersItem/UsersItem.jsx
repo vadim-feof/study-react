@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "./UsersItem.module.css"
 import userPng from "../../../assets/images/user.png"
+import {NavLink} from "react-router-dom";
 
 const UsersItem = (props) => {
     return (
         <div className={styles.item}>
             <div className={styles.left}>
                 <div className={styles.left_photo}>
-                    <img src={props.photos.small != null ? props.photos.small : userPng} alt=""/>
+                    <NavLink to={`/profile/${props.userId}`}>
+                        <img src={props.photos.small != null ? props.photos.small : userPng} alt=""/>
+                    </NavLink>
                 </div>
                 <div className={styles.btnWrapper}>
                     {props.followed ?

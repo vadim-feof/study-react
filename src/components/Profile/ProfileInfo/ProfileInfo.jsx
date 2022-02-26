@@ -1,30 +1,49 @@
 import React from 'react';
-import classes from './ProfileInfo.module.css'
+import styles from './ProfileInfo.module.css'
+import Preloader from "../../Common/Preloader/Preloader";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+    debugger
+    if (!props.profileData)
+        return <Preloader/>
+
     return (
-        <div className={classes.profile}>
-            <div className={classes.header}>
+        <div className={styles.profile}>
+            <div className={styles.header}>
                 <img src='' />
             </div>
-            <div className={classes.avatar}>
-                <img src=''/>
+            <div className={styles.avatar}>
+                <img src={props.profileData.photos.large}/>
             </div>
-            <div className={classes.info}>
-                <div className={classes.name}>
-                    Vadim B.
+            <div className={styles.info}>
+                <div className={styles.name}>
+                    Name: {props.profileData.fullName}
                 </div>
-                <div className={classes.birthday}>
-                    Date of Birth: 21 June
+                <div className={styles.aboutMe}>
+                    AboutMe: {props.profileData.aboutMe}
                 </div>
-                <div className={classes.city}>
-                    City: Kazan
+                <div className={styles.birthday}>
+                    Date of Birth:
                 </div>
-                <div className={classes.education}>
-                    Education: KNRTU `22
+                <div className={styles.city}>
+                    City:
                 </div>
-                <div className={classes.site}>
-                    Site: <a href='https://vk.com/ff1ght' target={'_blank'}>vk.com/ff1ght</a>
+                <div className={styles.education}>
+                    Education:
+                </div>
+                <div className={styles.contacts}>
+                    <div>Facebook: {props.profileData.contacts.facebook}</div>
+                    <div>Website: {props.profileData.contacts.website}</div>
+                    <div>VK: {props.profileData.contacts.vk}</div>
+                    <div>Twitter: {props.profileData.contacts.twitter}</div>
+                    <div>Instagram: {props.profileData.contacts.instagram}</div>
+                    <div>Youtube: {props.profileData.contacts.youtube}</div>
+                    <div>Github: {props.profileData.contacts.github}</div>
+                    <div>MainLink: {props.profileData.contacts.mainLink}</div>
+                </div>
+                <div className={styles.job}>
+                    <div>Looking job: {props.profileData.lookingForAJob ? 'yes': 'no'}</div>
+                    <div>Description: {props.profileData.lookingForAJobDescription}</div>
                 </div>
             </div>
         </div>

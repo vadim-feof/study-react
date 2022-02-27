@@ -9,7 +9,7 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
         debugger
         let userId = this.props.params.userId
-        if (!userId) userId = 2
+        if (!userId) userId = 22664
         axios
             .get(
                 `https://social-network.samuraijs.com/api/1.0/profile/${userId}`
@@ -21,6 +21,7 @@ class ProfileContainer extends React.Component {
     }
 
     render () {
+
         return (
             <Profile {...this.props}/>
         )
@@ -39,7 +40,9 @@ const ProfileParams = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        ...state.profilePage
+        ...state.profilePage,
+        authUserId: state.authData.data.id,
+        isAuth: state.authData.isAuth
     }
 }
 

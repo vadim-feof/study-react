@@ -4,7 +4,10 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     padding: 8px;
-    color: var(--main-color)
+    color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -16,4 +19,8 @@
 .logo img {
     width: 100%;
     height: 100%;
+}
+
+.login {
+
 }

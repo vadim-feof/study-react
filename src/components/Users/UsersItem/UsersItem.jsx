@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./UsersItem.module.css"
 import userPng from "../../../assets/images/user.png"
 import {NavLink} from "react-router-dom";
+import axios from "axios";
+import {followAPI} from "../../../api/api";
 
 const UsersItem = (props) => {
     return (
@@ -14,8 +16,32 @@ const UsersItem = (props) => {
                 </div>
                 <div className={styles.btnWrapper}>
                     {props.followed ?
-                        <button onClick={ () => props.unFollow(props.userId) } className={styles.left_unFollowBtn}>Unfollow</button>
-                        :<button onClick={ () => props.follow(props.userId) } className={styles.left_followBtn}>Follow</button>}
+                        <button
+                            onClick={() => {
+                                followAPI.unFollow(props.userId)
+                                    .then(data => {
+                                            if (data.resultCode === 0)
+                                                props.unFollow(props.userId)
+                                        }
+                                    )
+                                }
+                            }
+                            className={styles.left_unFollowBtn}>
+                            Unfollow
+                        </button>
+                        :<button
+                            onClick={() => {
+                                followAPI.follow(props.userId)
+                                    .then(data => {
+                                            if (data.resultCode === 0)
+                                                props.follow(props.userId)
+                                        }
+                                    )
+                                }
+                            }
+                            className={styles.left_followBtn}>
+                            Follow
+                        </button>}
                 </div>
             </div>
             <div className={styles.description}>

@@ -2,10 +2,8 @@ import React from "react";
 import styles from "./UsersItem.module.css"
 import userPng from "../../../assets/images/user.png"
 import {NavLink} from "react-router-dom";
-import {followAPI} from "../../../api/api";
 
 const UsersItem = (props) => {
-    debugger
     return (
         <div className={styles.item}>
             <div className={styles.left}>
@@ -18,34 +16,16 @@ const UsersItem = (props) => {
                     {props.followed ?
                         <button
                             disabled={props.followUsersQueue.some( id => id === props.userId)}
-                            onClick={() => {
-                                props.toggleIsFollowing(true, props.userId)
-                                followAPI.unFollow(props.userId)
-                                    .then(data => {
-                                            if (data.resultCode === 0)
-                                                props.unFollow(props.userId)
-                                            props.toggleIsFollowing(false, props.userId)
-                                        }
-                                    )
-                                }
-                            }
-                            className={styles.left_unFollowBtn}>
+                            onClick={() => props.unFollowTC(props.userId)}
+                            className={styles.left_unFollowBtn}
+                        >
                             Unfollow
                         </button>
                         :<button
                             disabled={props.followUsersQueue.some( id => id === props.userId)}
-                            onClick={() => {
-                                props.toggleIsFollowing(true, props.userId)
-                                followAPI.follow(props.userId)
-                                    .then(data => {
-                                            if (data.resultCode === 0)
-                                                props.follow(props.userId)
-                                            props.toggleIsFollowing(false, props.userId)
-                                        }
-                                    )
-                                }
-                            }
-                            className={styles.left_followBtn}>
+                            onClick={() => props.followTC(props.userId)}
+                            className={styles.left_followBtn}
+                        >
                             Follow
                         </button>}
                 </div>

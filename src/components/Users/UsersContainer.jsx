@@ -1,31 +1,18 @@
 import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, toggleIsFollowing, unFollow}
+import {unFollowTC, followTC, getUsersTC, setCurrentPage}
     from "../../redux/usersReducer";
-import {userAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true)
-        userAPI.getUsers(this.props.currentPage, this.props.usersCountonPage)
-            .then(data => {
-                    this.props.toggleIsFetching(false)
-                    this.props.setTotalUsersCount(data.totalCount)
-                    this.props.setUsers(data.items)
-                })
+        this.props.getUsersTC(this.props.currentPage, this.props.userCountOnPage)
     }
 
     onClickPage = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
-        this.props.toggleIsFetching(true)
-        userAPI.getUsers(pageNumber, this.props.usersCountonPage)
-            .then(data => {
-                    this.props.toggleIsFetching(false)
-                    this.props.setUsers(data.items)
-                }
-            )
+        this.props.getUsersTC(pageNumber, this.props.userCountOnPage)
     }
 
     render () {
@@ -49,12 +36,9 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {
-    follow,
-    unFollow,
-    setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    toggleIsFetching,
-    toggleIsFollowing
+    getUsersTC,
+    followTC,
+    unFollowTC
 })
 (UsersContainer)

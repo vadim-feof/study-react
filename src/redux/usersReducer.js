@@ -1,3 +1,5 @@
+import {followAPI, userAPI} from "../api/api";
+
 const FOLLOW = 'FOLLOW'
 const UN_FOLLOW = 'UN_FOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -78,3 +80,35 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 export const toggleIsFollowing = (isFollowingFetching, userId) => (
     {type: TOGGLE_IS_FOLLOWING, isFollowingFetching, userId}
 )
+
+export const getUsersTC = (currentPage, usersCountOnPage) => (dispatch) => {
+    dispatch(toggleIsFetching(true))
+    userAPI.getUsers(currentPage, usersCountOnPage)
+        .then(data => {
+            dispatch(toggleIsFetching(false))
+            dispatch(setTotalUsersCount(data.totalCount))
+            dispatch(setUsers(data.items))
+        })
+}
+
+export const followTC = (userId) => (dispatch) => {
+    dispatch(toggleIsFollowing(true, userId))
+    followAPI.follow(userId)
+        .then(data => {
+                if (data.resultCode === 0)
+                    dispatch(follow(userId))
+                dispatch(toggleIsFollowing(false, userId))
+            }
+        )
+}
+
+export const unFollowTC = (userId) => (dispatch) => {
+    dispatch(toggleIsFollowing(true, userId))
+    followAPI.unFollow(userId)
+        .then(data => {
+                if (data.resultCode === 0)
+                    dispatch(unFollow(userId))
+                dispatch(toggleIsFollowing(false, userId))
+            }
+        )
+}

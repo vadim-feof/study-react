@@ -32,3 +32,10 @@ export const authAPI = {
             .then(response => response.data)
     }
 }
+
+export const profileAPI = {
+    setUser: (userId) => {
+        return instance.get(`profile/${userId}`)
+            .then(response => response.data)
+    }
+}

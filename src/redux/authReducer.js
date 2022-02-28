@@ -26,13 +26,13 @@ const authReducer = (state = initialState, action) => {
 
 export default authReducer
 
-export const setAuthData = ({id, login ,email}) => ({type: SET_AUTH_DATA, data: {id, login, email}})
+export const setAuthUserData = ({id, login ,email}) => ({type: SET_AUTH_DATA, data: {id, login, email}})
 
-export const authMeTC = () => (dispatch) => {
+export const getAuthUserData = () => (dispatch) => {
     authAPI.authMe()
         .then(data => {
                 if (data.resultCode === 0) {
-                    dispatch(setAuthData({...data.data}))
+                    dispatch(setAuthUserData({...data.data}))
                 }
             }
         )

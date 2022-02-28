@@ -81,7 +81,7 @@ export const toggleIsFollowing = (isFollowingFetching, userId) => (
     {type: TOGGLE_IS_FOLLOWING, isFollowingFetching, userId}
 )
 
-export const getUsersTC = (currentPage, usersCountOnPage) => (dispatch) => {
+export const getUsers = (currentPage, usersCountOnPage) => (dispatch) => {
     dispatch(toggleIsFetching(true))
     userAPI.getUsers(currentPage, usersCountOnPage)
         .then(data => {
@@ -91,7 +91,7 @@ export const getUsersTC = (currentPage, usersCountOnPage) => (dispatch) => {
         })
 }
 
-export const followTC = (userId) => (dispatch) => {
+export const followOnUser = (userId) => (dispatch) => {
     dispatch(toggleIsFollowing(true, userId))
     followAPI.follow(userId)
         .then(data => {
@@ -102,7 +102,7 @@ export const followTC = (userId) => (dispatch) => {
         )
 }
 
-export const unFollowTC = (userId) => (dispatch) => {
+export const unFollowOnUser = (userId) => (dispatch) => {
     dispatch(toggleIsFollowing(true, userId))
     followAPI.unFollow(userId)
         .then(data => {

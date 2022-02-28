@@ -1,18 +1,18 @@
 import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {unFollowTC, followTC, getUsersTC, setCurrentPage}
+import {unFollowOnUser, followOnUser, getUsers, setCurrentPage}
     from "../../redux/usersReducer";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsersTC(this.props.currentPage, this.props.userCountOnPage)
+        this.props.getUsers(this.props.currentPage, this.props.userCountOnPage)
     }
 
     onClickPage = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
-        this.props.getUsersTC(pageNumber, this.props.userCountOnPage)
+        this.props.getUsers(pageNumber, this.props.userCountOnPage)
     }
 
     render () {
@@ -37,8 +37,8 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     setCurrentPage,
-    getUsersTC,
-    followTC,
-    unFollowTC
+    getUsers,
+    followOnUser,
+    unFollowOnUser
 })
 (UsersContainer)

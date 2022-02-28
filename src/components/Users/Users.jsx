@@ -2,6 +2,7 @@ import React from "react";
 import styles from './Users.module.css'
 import UsersItem from "./UsersItem/UsersItem";
 import Preloader from "../Common/Preloader/Preloader";
+import {followOnUser} from "../../redux/usersReducer";
 
 const Users = (props) => {
     const setPages = () => {
@@ -35,8 +36,8 @@ const Users = (props) => {
                                status={u.status}
                                location={'Location'}
                                followed={u.followed}
-                               followTC={props.followTC}
-                               unFollowTC={props.unFollowTC}
+                               followOnUser={props.followOnUser}
+                               unFollowOnUser={props.unFollowOnUser}
                                followUsersQueue={props.followUsersQueue}
                                toggleIsFollowing={props.toggleIsFollowing}
                     />

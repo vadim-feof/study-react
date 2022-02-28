@@ -16,14 +16,14 @@ const UsersItem = (props) => {
                     {props.followed ?
                         <button
                             disabled={props.followUsersQueue.some( id => id === props.userId)}
-                            onClick={() => props.unFollowTC(props.userId)}
+                            onClick={() => props.unFollowOnUser(props.userId)}
                             className={styles.left_unFollowBtn}
                         >
                             Unfollow
                         </button>
                         :<button
                             disabled={props.followUsersQueue.some( id => id === props.userId)}
-                            onClick={() => props.followTC(props.userId)}
+                            onClick={() => props.followOnUser(props.userId)}
                             className={styles.left_followBtn}
                         >
                             Follow

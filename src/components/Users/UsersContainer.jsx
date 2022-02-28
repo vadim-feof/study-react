@@ -1,7 +1,7 @@
 import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unFollow}
+import {follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, toggleIsFollowing, unFollow}
     from "../../redux/usersReducer";
 import {userAPI} from "../../api/api";
 
@@ -41,7 +41,8 @@ const mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         totalUsersCount: state.usersPage.totalUsersCount,
         usersCountOnPage: state.usersPage.usersCountOnPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followUsersQueue: state.usersPage.followUsersQueue
     }
 }
 
@@ -53,6 +54,7 @@ export default connect(mapStateToProps, {
     setUsers,
     setCurrentPage,
     setTotalUsersCount,
-    toggleIsFetching
+    toggleIsFetching,
+    toggleIsFollowing
 })
 (UsersContainer)

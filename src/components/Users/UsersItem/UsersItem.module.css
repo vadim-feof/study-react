@@ -46,6 +46,11 @@
     background-color: var(--button-blue-color);
 }
 
+.left_followBtn:disabled, .left_unFollowBtn:disabled {
+    background-color: #33363c;
+    cursor: not-allowed;
+}
+
 .description {
     width: 80%;
     height: 85%;

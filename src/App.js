@@ -10,6 +10,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 /* http://preview.themeforest.net/item/buddy-multipurpose-wordpressbuddypress-theme/full_screen_preview/3506362?_ga=2.214380447.908696352.1643398348-404296411.1634847135
 */
@@ -28,6 +29,7 @@ function App(props) {
                     <Routes>
                         <Route path='/profile/' element={<ProfileContainer/>}/>
                         <Route path='/profile/:userId' element={<ProfileContainer/>}/>
+                        <Route path='/login' element={<Login/>}/>
                         <Route path='/dialogs/*' element={<DialogsContainer/>}/>
                         <Route path='/users' element={<UsersContainer/>}/>
                         <Route path='/news' element={<News />} />

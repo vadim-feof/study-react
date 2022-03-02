@@ -4,12 +4,9 @@ import DialogsItem from "./DialogsItem/DialogsItem";
 import MessagesItem from "./MessagesItem/MessagesItem";
 
 const Dialogs = (props) => {
+    debugger
     let dialogsElement = props.dialogsData.map(d => <DialogsItem id={d.id} key={d.id} name={d.name} avatarUrl={d.avatarUrl}/>)
     let messagesElement = props.messagesData.map(m => <MessagesItem key={m.id} message={m.message}/>)
-
-    const onChangeMessageText = (e) => {
-        props.onChangeMessageText(e.target.value)
-    }
 
     return (
         <div className={classes.wrapper}>
@@ -21,9 +18,9 @@ const Dialogs = (props) => {
                     {messagesElement}
                 </div>
                 <div className={classes.messages__input}>
-                    <textarea onChange={onChangeMessageText}
+                    <textarea onChange={(event) => props.updateNewMessage(event.target.value)}
                               value={props.newMessageText}/>
-                    <button onClick={props.onSendMessage} className={classes.sendButton}>Send</button>
+                    <button onClick={props.addMessage} className={classes.sendButton}>Send</button>
                 </div>
             </div>
         </div>

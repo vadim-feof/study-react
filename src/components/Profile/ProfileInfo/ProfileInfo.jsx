@@ -1,19 +1,19 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
-
+import userImg from '../../../assets/images/user.png'
+import ProfileStatus from './ProfileStatus/ProfileStatus'
 const ProfileInfo = (props) => {
-
     if (!props.profileData)
         return <Preloader/>
 
     return (
         <div className={styles.profile}>
-            <div className={styles.header}>
-                <img src='' />
-            </div>
             <div className={styles.avatar}>
-                <img src={props.profileData.photos.large}/>
+                <img src={!props.profileData.photos.large ? userImg : props.profileData.photos.large} alt=''/>
+                <ProfileStatus statusText = {props.statusText}
+                               updateStatusText={props.updateStatusText}
+                />
             </div>
             <div className={styles.info}>
                 <div className={styles.name}>

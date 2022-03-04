@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
             <div className={styles.avatar}>
                 <img src={!props.profileData.photos.large ? userImg : props.profileData.photos.large} alt=''/>
                 <ProfileStatus statusText = {props.statusText}
-                               updateStatusText={props.updateStatusText}
+                               updateUserStatus={props.updateUserStatus}
                 />
             </div>
             <div className={styles.info}>

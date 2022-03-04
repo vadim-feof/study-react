@@ -3,26 +3,47 @@ import styles from './ProfileStatus.module.css'
 
 class ProfileStatus extends Component {
     state = {
-        editMode: false
+        editMode: false,
+        statusText: ''
     }
 
-    toggleEditMode = (toggle) => {
+    componentDidMount() {
         this.setState({
-            editMode: toggle
+            statusText: this.props.statusText
         })
     }
+
+    activateEditMode = () => {
+        this.setState({
+            editMode: true
+        })
+    }
+
+    deactivateEditMode = (statusText) => {
+        this.setState({
+            editMode: false
+        })
+        this.props.updateUserStatus(this.state.statusText)
+    }
+
+    changeStatusText = (text) => {
+        this.setState({
+            statusText: text
+        })
+    }
+
     render() {
         return (
             <div>
                 Status:
                 <div>
                     {this.state.editMode ?
-                        <input value={this.props.statusText}
-                               onBlur={() => this.toggleEditMode(false)}
+                        <input value={this.state.statusText}
+                               onBlur={() => this.deactivateEditMode()}
                                autoFocus={true}
-                               onChange={ event => this.props.updateStatusText(event.target.value)}
+                               onChange={ event => this.changeStatusText(event.target.value)}
                         />:
-                        <span onDoubleClick={() => this.toggleEditMode(true)}>{this.props.statusText}</span>
+                        <span onDoubleClick={() => this.activateEditMode()}>{this.props.statusText}</span>
                     }
                 </div>
             </div>
